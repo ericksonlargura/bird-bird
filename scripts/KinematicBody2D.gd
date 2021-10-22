@@ -1,10 +1,10 @@
 extends KinematicBody2D
 
-var velocity = Vector2()
-
 const GRAVITY = 600.0
 const JUMP_SPEED = 200
 const ROTATION_DELTA = 0.05
+
+var velocity = Vector2()
 
 onready var _animated_sprite = $AnimatedSprite
 
@@ -24,9 +24,16 @@ func _physics_process(delta):
 	else:
 		if rotation > -1:
 			rotation -= ROTATION_DELTA
-	print(rotation)
 
-	move_and_slide(velocity)
+	velocity = move_and_slide(velocity)
+
+	# Identifica o objeto em contato
+	# https://docs.godotengine.org/en/3.4/tutorials/physics/using_kinematic_body_2d.html#detecting-collisions
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision:
+			# Chamar função para finalizar o jogo
+			print('Em contato com ', collision.collider.name)
 
 # Detecção de inputs
 func _input(_event):
