@@ -10,7 +10,7 @@ func _ready():
 	$ButtonPlay.visible = false
 	get_tree().paused = true
 
-func _process(delta):
+func _process(_delta):
 	if(_game.running):
 		$TextureStart.visible = false
 		$GameOverUI.visible = false

@@ -9,7 +9,7 @@ func _ready():
 	self.z_index = 20
 	pass # Replace with function body.
 
-func _process(delta):
+func _process(_delta):
 	pass
 	
 func makePoint():

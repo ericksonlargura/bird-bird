@@ -41,7 +41,7 @@ func _process(delta):
 		add_child(top_pipe)
 
 		var coin = point.instance()
-		coin.position = Vector2(VECTOR_X, y - (PIPE_HEIGHT / 2) - (space / 2))
+		coin.position = Vector2(VECTOR_X, y - (PIPE_HEIGHT / 2.0) - (space / 2.0))
 		add_child(coin)
 
 		pipes.append({

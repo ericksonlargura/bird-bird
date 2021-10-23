@@ -11,8 +11,8 @@ onready var _game = get_node("/root/GameScript")
 onready var _animated_sprite = $AnimatedSprite
 
 # Quando carregado, conecta o signal à determinada função
-func _ready():
-	_animated_sprite.connect("animation_finished", self, "_on_AnimatedSprite_animation_finished")
+#func _ready():
+#	_animated_sprite.connect("animation_finished", self, "_on_AnimatedSprite_animation_finished")
 
 # Sistema de gravidade
 # https://docs.godotengine.org/en/stable/tutorials/physics/kinematic_character_2d.html

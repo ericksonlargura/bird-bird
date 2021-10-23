@@ -6,13 +6,9 @@ onready var _hudPoint = get_node("/root/HudPoints")
 func _ready():
 	pass
 
-
-func _process(delta):
+func _process(_delta):
 	pass
 
-
-
-
-func _on_point_player_entered(body):
+func _on_point_player_entered(_body):
 	_hudPoint.makePoint()
 	pass # Replace with function body.
