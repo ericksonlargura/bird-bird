@@ -19,7 +19,7 @@ func makePoint():
 		
 
 func makeNumber(number):
-	var numbers = String(number);	
+	var numbers = String(number)
 	var res
 	for i in numbers.length():
 		match String(numbers[i]):
@@ -45,7 +45,7 @@ func makeNumber(number):
 				res = preload("res://resources/UI/numbers/Number9.tscn")
 
 		var s = res.instance()
-		s.position = Vector2((resolutionX / 2) - ((25 * (numbers.length() - 1))), 50)
+		s.position = Vector2((resolutionX / 2) - ((25 * numbers.length())/2) + (25 * i), 50)
 		add_child(s)
 		instances.append(s)
 
