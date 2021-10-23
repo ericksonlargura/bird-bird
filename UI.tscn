@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://sprites/gameover.png" type="Texture" id=2]
 [ext_resource path="res://sprites/message.png" type="Texture" id=3]
+[ext_resource path="res://sprites/cursor.png" type="Texture" id=4]
+[ext_resource path="res://sprites/btn_normal.png" type="Texture" id=5]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -28,3 +30,11 @@ stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Cursor" type="Sprite" parent="."]
+position = Vector2( 35.2778, -56.6965 )
+texture = ExtResource( 4 )
+
+[node name="ButtonPlay" type="Sprite" parent="."]
+position = Vector2( 139.994, 222.539 )
+texture = ExtResource( 5 )
