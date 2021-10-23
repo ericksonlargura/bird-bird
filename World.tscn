@@ -98,3 +98,4 @@ __meta__ = {
 }
 
 [node name="UI" parent="Node" instance=ExtResource( 8 )]
+pause_mode = 2
