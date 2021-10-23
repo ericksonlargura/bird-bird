@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://sprites/background-day.png" type="Texture" id=1]
 [ext_resource path="res://resources/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://resources/Pipes.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/Run.gd" type="Script" id=7]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://resources/UI/HudPoints.tscn" type="PackedScene" id=9]
+[ext_resource path="res://resources/Point.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
@@ -99,3 +101,8 @@ __meta__ = {
 
 [node name="UI" parent="Node" instance=ExtResource( 8 )]
 pause_mode = 2
+
+[node name="Point" parent="Node" instance=ExtResource( 10 )]
+position = Vector2( -334.494, 85.3071 )
+
+[node name="HudPointsNode" parent="Node" instance=ExtResource( 9 )]

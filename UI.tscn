@@ -31,10 +31,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Cursor" type="Sprite" parent="."]
-position = Vector2( 35.2778, -56.6965 )
-texture = ExtResource( 4 )
-
 [node name="ButtonPlay" type="Sprite" parent="."]
 position = Vector2( 139.994, 222.539 )
 texture = ExtResource( 5 )
+
+[node name="Cursor" type="Sprite" parent="."]
+position = Vector2( 35.2778, -56.6965 )
+texture = ExtResource( 4 )

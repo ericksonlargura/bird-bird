@@ -22,7 +22,7 @@ func _physics_process(delta):
 			position = defaultPosition
 			_game.points = 0
 		_game.running = true
-	if(!_game.running):
+	if(_game.running == false or _game.die == true):
 		return
 	velocity += Vector2(0, delta * GRAVITY)
 
@@ -42,9 +42,9 @@ func _physics_process(delta):
 		var collision = get_slide_collision(i)
 		if collision:
 			# Chamar função para finalizar o jogo
-			print('Em contato com ', collision.collider.name)
-			_game.running = false
-			_game.die = true
+				print('Em contato com ', collision.collider.name)
+				_game.running = false
+				_game.die = true
 
 # Detecção de inputs
 func _input(_event):

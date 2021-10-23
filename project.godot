@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GameScript="*res://scripts/GameScript.gd"
+HudPoints="*res://resources/UI/HudPoints.tscn"
 
 [display]
 
