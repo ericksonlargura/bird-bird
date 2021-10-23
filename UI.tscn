@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://sprites/gameover.png" type="Texture" id=2]
 [ext_resource path="res://sprites/message.png" type="Texture" id=3]
 [ext_resource path="res://sprites/cursor.png" type="Texture" id=4]
 [ext_resource path="res://sprites/btn_normal.png" type="Texture" id=5]
+[ext_resource path="res://sprites/btn_clicked.png" type="Texture" id=6]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -31,10 +32,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonPlay" type="Sprite" parent="."]
-position = Vector2( 139.994, 222.539 )
-texture = ExtResource( 5 )
+[node name="PlayAgain" type="TextureButton" parent="."]
+margin_left = 90.3797
+margin_top = 197.408
+margin_right = 191.38
+margin_bottom = 247.408
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Cursor" type="Sprite" parent="."]
 position = Vector2( 35.2778, -56.6965 )
 texture = ExtResource( 4 )
+
+[connection signal="pressed" from="PlayAgain" to="." method="_on_TextureButton_pressed"]

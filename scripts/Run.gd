@@ -3,7 +3,7 @@ extends Node
 const PIPE_AFTER_SECONDS = 2
 const RND_MIN_PIPE = 360.0
 const RND_MAX_PIPE = 560.0
-const RND_MIN_SPACE = 80.0
+const RND_MIN_SPACE = 100.0
 const RND_MAX_SPACE = 160.0
 const PIPE_HEIGHT = 320
 const VECTOR_X = 320

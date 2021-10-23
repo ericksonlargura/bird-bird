@@ -11,12 +11,11 @@ func _ready():
 
 func _process(_delta):
 	pass
-	
+
 func makePoint():
 	points += 1
 	deleteNumber()
 	makeNumber(points)
-		
 
 func makeNumber(number):
 	var numbers = String(number)
@@ -52,5 +51,4 @@ func makeNumber(number):
 func deleteNumber():
 	for i in range(instances.size()):
 		instances[i].queue_free()
-
 	instances = []
