@@ -21,5 +21,4 @@ func _process(delta):
 		$ButtonPlay.visible = true
 		get_tree().paused = true
 	
-	print(get_global_mouse_position())
 	$Cursor.position = get_global_mouse_position() - Vector2(-12, -10)
