@@ -67,8 +67,10 @@ pause_mode = 1
 script = ExtResource( 7 )
 
 [node name="Player" parent="Node" instance=ExtResource( 2 )]
+position = Vector2( 144, 256 )
 
 [node name="Pipes" parent="Node" instance=ExtResource( 6 )]
+position = Vector2( -28, 160 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Node"]
 offset = Vector2( 144, 256 )

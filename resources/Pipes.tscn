@@ -8,7 +8,6 @@ extents = Vector2( 26.126, 160.512 )
 [node name="Pipes" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 327.374, 410.012 )
 
 [node name="Sprite" type="Sprite" parent="Area2D"]
 texture = ExtResource( 1 )
