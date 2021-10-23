@@ -6,6 +6,7 @@ const ROTATION_DELTA = 0.05
 
 var velocity = Vector2()
 var defaultPosition = position
+var defaultRotation = rotation
 
 onready var _game = get_node("/root/GameScript")
 onready var _animated_sprite = $AnimatedSprite
@@ -19,7 +20,6 @@ func _ready():
 func _physics_process(delta):
 	if(Input.is_action_just_pressed("jump") and (!_game.running)):
 		if(_game.die):
-			position = defaultPosition
 			_game.points = 0
 		_game.running = true
 	if(_game.running == false or _game.die == true):
@@ -58,3 +58,7 @@ func _input(_event):
 # Para o loop no último sprite da animação
 func _on_AnimatedSprite_animation_finished():
 	_animated_sprite.stop()
+
+func resetBird():
+	print('15')
+	pass
