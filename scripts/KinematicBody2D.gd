@@ -5,18 +5,22 @@ const JUMP_SPEED = 200
 const ROTATION_DELTA = 0.05
 
 var velocity = Vector2()
+var defaultPosition = position
 
 onready var _game = get_node("/root/GameScript")
 onready var _animated_sprite = $AnimatedSprite
 
 # Quando carregado, conecta o signal à determinada função
 func _ready():
-	_animated_sprite.connect('animation_finished', self, '_on_animated_sprite_animation_finished')
+	_animated_sprite.connect("animation_finished", self, "_on_AnimatedSprite_animation_finished")
 
 # Sistema de gravidade
 # https://docs.godotengine.org/en/stable/tutorials/physics/kinematic_character_2d.html
 func _physics_process(delta):
 	if(Input.is_action_just_pressed("jump") and (!_game.running)):
+		if(_game.die):
+			position = defaultPosition
+			_game.points = 0
 		_game.running = true
 	if(!_game.running):
 		return
@@ -52,6 +56,5 @@ func _input(_event):
 		velocity = Vector2(0, -JUMP_SPEED)
 
 # Para o loop no último sprite da animação
-func _on_animated_sprite_animation_finished():
+func _on_AnimatedSprite_animation_finished():
 	_animated_sprite.stop()
-
