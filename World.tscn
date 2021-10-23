@@ -1,12 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://sprites/base.png" type="Texture" id=1]
-[ext_resource path="res://sprites/bluebird-downflap.png" type="Texture" id=2]
-[ext_resource path="res://sprites/bluebird-midflap.png" type="Texture" id=3]
-[ext_resource path="res://sprites/bluebird-upflap.png" type="Texture" id=4]
-[ext_resource path="res://scripts/KinematicBody2D.gd" type="Script" id=5]
-[ext_resource path="res://sprites/background-day.png" type="Texture" id=6]
-[ext_resource path="res://scripts/ParallaxBackground.gd" type="Script" id=7]
+[ext_resource path="res://sprites/background-day.png" type="Texture" id=1]
+[ext_resource path="res://resources/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sprites/base.png" type="Texture" id=3]
+[ext_resource path="res://scripts/ParallaxBackground.gd" type="Script" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
@@ -16,7 +13,7 @@ points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
 
 [sub_resource type="TileSet" id=3]
 0/name = "base.png 0"
-0/texture = ExtResource( 1 )
+0/texture = ExtResource( 3 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 48, 48 )
@@ -37,7 +34,7 @@ points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
 } ]
 0/z_index = 0
 1/name = "base.png 1"
-1/texture = ExtResource( 1 )
+1/texture = ExtResource( 3 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 0, 48, 48, 48 )
@@ -58,29 +55,20 @@ points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
 } ]
 1/z_index = 0
 
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "fly",
-"speed": 5.0
-} ]
+[node name="World" type="Node2D"]
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 18, 12 )
-
-[node name="Node2D" type="Node2D"]
+[node name="Player" parent="." instance=ExtResource( 2 )]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 offset = Vector2( 144, 256 )
 transform = Transform2D( 1, 0, 0, 1, 144, 256 )
-script = ExtResource( 7 )
+script = ExtResource( 4 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 288, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource( 6 )
+texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 288, 512 )
 
@@ -93,15 +81,3 @@ tile_data = PoolIntArray( 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-position = Vector2( 145.171, 239.873 )
-script = ExtResource( 5 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
-frames = SubResource( 4 )
-animation = "fly"
-speed_scale = 2.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
-shape = SubResource( 5 )
