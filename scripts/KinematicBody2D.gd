@@ -6,6 +6,7 @@ const ROTATION_DELTA = 0.05
 
 var velocity = Vector2()
 
+onready var _game = get_node("/root/GameScript")
 onready var _animated_sprite = $AnimatedSprite
 
 # Quando carregado, conecta o signal à determinada função
@@ -15,6 +16,10 @@ func _ready():
 # Sistema de gravidade
 # https://docs.godotengine.org/en/stable/tutorials/physics/kinematic_character_2d.html
 func _physics_process(delta):
+	if(Input.is_action_just_pressed("jump") and (!_game.running)):
+		_game.running = true
+	if(!_game.running):
+		return
 	velocity += Vector2(0, delta * GRAVITY)
 
 	# Rotaciona o personagem de acordo com a direção
@@ -34,6 +39,8 @@ func _physics_process(delta):
 		if collision:
 			# Chamar função para finalizar o jogo
 			print('Em contato com ', collision.collider.name)
+			_game.running = false
+			_game.die = true
 
 # Detecção de inputs
 func _input(_event):
@@ -47,3 +54,4 @@ func _input(_event):
 # Para o loop no último sprite da animação
 func _on_animated_sprite_animation_finished():
 	_animated_sprite.stop()
+
