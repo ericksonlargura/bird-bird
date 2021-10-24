@@ -5,6 +5,9 @@ onready var _hudPoint = get_node("/root/HudPoints")
 onready var _player = get_node("/root/PlayerNode")
 
 func _ready():
+	_hudPoint.points = 0
+	_hudPoint.deleteNumber()
+	_hudPoint.makeNumber(0)
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	self.z_index = 5
 	$TextureStart.visible = true
@@ -31,12 +34,12 @@ func resetGame():
 	_game.running = false
 	_game.die = false
 	_hudPoint.points = 0
-	_ready()
 	_player.resetPlayer()
+	self._ready()
 	get_tree().paused = true
 	pass
 
 
 func _on_TextureButton_pressed():
-	resetGame()
+	self.resetGame()
 	pass # Replace with function body.

@@ -12,7 +12,8 @@ onready var _game = get_node("/root/GameScript")
 onready var _animated_sprite = $AnimatedSprite
 
 # Quando carregado, conecta o signal à determinada função
-#func _ready():
+func _ready():
+	pass
 #	_animated_sprite.connect("animation_finished", self, "_on_AnimatedSprite_animation_finished")
 
 # Sistema de gravidade

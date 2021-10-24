@@ -1,4 +1,6 @@
-extends Node
+extends Node2D
+
+onready var _game = get_node("/root/GameScript")
 
 const PIPE_AFTER_SECONDS = 2
 const RND_MIN_PIPE = 360.0
@@ -51,17 +53,28 @@ func _process(delta):
 		})
 
 	var should_remove = []
-	for i in range(pipes.size()):
-		if pipes[i].top.position.x < -80:
-			pipes[i].top.queue_free()
-			pipes[i].bottom.queue_free()
-			pipes[i].coin.queue_free()
+	for i in range(self.pipes.size()):
+		if self.pipes[i].top.position.x < -80:
+			self.pipes[i].top.queue_free()
+			self.pipes[i].bottom.queue_free()
+			self.pipes[i].coin.queue_free()
 			should_remove.append(i)
 		else:
 			var velocity = Vector2(delta * SPEED, 0)
-			pipes[i].top.position -= velocity
-			pipes[i].bottom.position -= velocity
-			pipes[i].coin.position -= velocity
+			self.pipes[i].top.position -= velocity
+			self.pipes[i].bottom.position -= velocity
+			self.pipes[i].coin.position -= velocity
 
 	for i in should_remove:
-		pipes.remove(i)
+		self.pipes.remove(i)
+
+
+func deleteAllPipes():
+	var should_remove = []
+	for i in range(pipes.size()):
+		self.pipes[i].top.queue_free()
+		self.pipes[i].bottom.queue_free()
+		self.pipes[i].coin.queue_free()
+		should_remove.append(i)
+
+	self.pipes = []

@@ -44,7 +44,7 @@ func makeNumber(number):
 				res = preload("res://resources/UI/numbers/Number9.tscn")
 
 		var s = res.instance()
-		s.position = Vector2((resolutionX / 2) - ((25 * numbers.length())/2) + (25 * i), 50)
+		s.position = Vector2(((resolutionX + 25) / 2) - ((25 * numbers.length())/2) + (25 * i), 50)
 		add_child(s)
 		instances.append(s)
 
