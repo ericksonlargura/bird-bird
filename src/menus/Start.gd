@@ -1,8 +1,8 @@
 extends Node2D
 
-onready var _game = get_node("/root/GameScript")
-onready var _hudPoint = get_node("/root/HudPoints")
-onready var _player = get_node("/root/PlayerNode")
+onready var _game = get_node("/root/Store")
+onready var _hudPoint = get_node("/root/Score")
+onready var _player = get_node("/root/InitializePlayer")
 
 func _ready():
 	_hudPoint.points = 0

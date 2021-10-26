@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/sprites/base.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/background-day.png" type="Texture" id=2]
+[ext_resource path="res://src/levels/Level1ParallaxBackground.gd" type="Script" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
@@ -58,6 +59,7 @@ points = PoolVector2Array( 0, 0, 48, 0, 48, 48, 0, 48 )
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 offset = Vector2( 144, 256 )
 transform = Transform2D( 1, 0, 0, 1, 144, 256 )
+script = ExtResource( 3 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2( 288, 0 )
