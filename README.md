@@ -17,5 +17,5 @@
 
 ### Demo:
 
-![image](docs/images/print_game.png)
+![image](screenshots/print_game.png)
 
