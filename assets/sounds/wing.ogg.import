@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/wing.ogg-54663f268f6a6dd3f89b86e70432a36a.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/wing.ogg"
+dest_files=[ "res://.import/wing.ogg-54663f268f6a6dd3f89b86e70432a36a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
