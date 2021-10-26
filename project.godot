@@ -11,7 +11,14 @@ config_version=4
 [application]
 
 config/name="flappy_bird"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Store="*res://src/scripts/Store.gd"
+InitializePlayer="*res://src/scripts/InitializePlayer.gd"
+RunPipes="*res://src/scripts/RunPipes.gd"
 
 [display]
 

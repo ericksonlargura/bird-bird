@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/sprites/btn_normal.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/message.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/gameover.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/btn_clicked.png" type="Texture" id=4]
+[ext_resource path="res://src/menus/Start.gd" type="Script" id=5]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="TextureStart" type="TextureRect" parent="."]
+margin_right = 288.0
+margin_bottom = 576.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOverUI" type="Node2D" parent="."]
+
+[node name="TextureGameOver" type="TextureRect" parent="GameOverUI"]
+margin_right = 288.0
+margin_bottom = 292.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayAgain" type="TextureButton" parent="."]
+margin_left = 90.0
+margin_top = 200.0
+margin_right = 190.0
+margin_bottom = 250.0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 4 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cursor" type="Sprite" parent="."]
+
+[connection signal="pressed" from="PlayAgain" to="." method="_on_PlayAgain_pressed"]
