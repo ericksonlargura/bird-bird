@@ -3,6 +3,7 @@ extends Node2D
 onready var _game = get_node("/root/Store")
 onready var _hudPoint = get_node("/root/Score")
 onready var _player = get_node("/root/InitializePlayer")
+onready var _save = get_node("/root/SaveGame")
 
 func _ready():
 	_hudPoint.points = 0
@@ -41,6 +42,7 @@ func resetGame():
 	_player.resetPlayer()
 	self._ready()
 	get_tree().paused = true
+	_save.load_game()
 	pass
 
 func _on_PlayAgain_pressed():

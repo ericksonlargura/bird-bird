@@ -9,6 +9,7 @@ var defaultPosition = position
 var defaultRotation = rotation
 
 onready var _game = get_node("/root/Store")
+onready var _save = get_node("/root/SaveGame")
 onready var _animated_sprite = $AnimatedSprite
 
 # Quando carregado, conecta o signal à determinada função
@@ -43,9 +44,10 @@ func _physics_process(delta):
 		var collision = get_slide_collision(i)
 		if collision:
 			# Chamar função para finalizar o jogo
-				print('Em contato com ', collision.collider.name)
-				_game.running = false
-				_game.die = true
+			print('Em contato com ', collision.collider.name)
+			_save.save_game()
+			_game.running = false
+			_game.die = true
 
 # Detecção de inputs
 func _input(_event):

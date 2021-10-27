@@ -20,6 +20,7 @@ Store="*res://src/scripts/Store.gd"
 InitializePlayer="*res://src/scripts/InitializePlayer.gd"
 RunPipes="*res://src/scripts/RunPipes.gd"
 Score="*res://src/models/Score.tscn"
+SaveGame="*res://src/scripts/SaveGame.gd"
 
 [display]
 
