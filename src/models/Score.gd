@@ -7,11 +7,17 @@ var points = 0
 var instances = []
 var resolutionX = 278
 
+var isDay = true
+export var changeBGPoints = 10
+var changeBGPointsProcess = changeBGPoints
+
 func _ready():
 	self.z_index = 20
 	pass # Replace with function body.
 
 func _process(_delta):
+	if(changeBGPointsProcess == 0):
+		changeBGPointsProcess = changeBGPoints
 	pass
 
 func makePoint():
