@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/sprites/btn_normal.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/hud/play_normal.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/message.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/gameover.png" type="Texture" id=3]
-[ext_resource path="res://assets/sprites/btn_clicked.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/hud/play_clicked.png" type="Texture" id=4]
 [ext_resource path="res://src/menus/Start.gd" type="Script" id=5]
 [ext_resource path="res://assets/sprites/cursor.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/hud/shop_clicked.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/hud/shop_normal.png" type="Texture" id=8]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 5 )
@@ -32,11 +34,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayAgain" type="TextureButton" parent="."]
-margin_left = 90.0
-margin_top = 200.0
-margin_right = 190.0
-margin_bottom = 250.0
+[node name="Play" type="TextureButton" parent="."]
+margin_left = 47.1284
+margin_top = 198.502
+margin_right = 132.128
+margin_bottom = 243.502
+rect_scale = Vector2( 1.2, 1.2 )
 texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 4 )
 stretch_mode = 3
@@ -44,7 +47,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Shop" type="TextureButton" parent="."]
+margin_left = 149.528
+margin_top = 196.891
+margin_right = 234.528
+margin_bottom = 241.891
+rect_scale = Vector2( 1.2, 1.2 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Cursor" type="Sprite" parent="."]
 texture = ExtResource( 6 )
 
-[connection signal="pressed" from="PlayAgain" to="." method="_on_PlayAgain_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_PlayAgain_pressed"]

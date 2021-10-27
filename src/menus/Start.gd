@@ -12,18 +12,22 @@ func _ready():
 	self.z_index = 5
 	$TextureStart.visible = true
 	$GameOverUI.visible = false
-	$PlayAgain.visible = false
+	$Play.visible = false
+	$Shop.visible = false
 	get_tree().paused = true
 
 func _process(_delta):
 	if(_game.running):
 		$TextureStart.visible = false
 		$GameOverUI.visible = false
-		$PlayAgain.visible = false
+		$Play.visible = false
 		get_tree().paused = false
 	elif(_game.die):
 		$GameOverUI.visible = true
-		$PlayAgain.visible = true
+		
+		$Play.visible = true
+		$Shop.visible = true
+		#animateButton($Shop, 1.2)
 		get_tree().paused = true
 	
 	$Cursor.position = get_global_mouse_position() - Vector2(-12, -10)
