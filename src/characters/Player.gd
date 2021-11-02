@@ -20,7 +20,7 @@ func _ready():
 # Sistema de gravidade
 # https://docs.godotengine.org/en/stable/tutorials/physics/kinematic_character_2d.html
 func _physics_process(delta):
-	if(Input.is_action_just_pressed("jump") and (!_game.running)):
+	if(Input.is_action_just_pressed("jump") and (!_game.running) and (!_game.hasMenuClick)):
 		if(_game.die):
 			_game.points = 0
 		_game.running = true
@@ -62,6 +62,3 @@ func _input(_event):
 func _on_AnimatedSprite_animation_finished():
 	_animated_sprite.stop()
 
-func resetBird():
-	print('15')
-	pass

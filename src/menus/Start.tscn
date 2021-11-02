@@ -60,6 +60,8 @@ __meta__ = {
 }
 
 [node name="Cursor" type="Sprite" parent="."]
+z_index = 90
 texture = ExtResource( 6 )
 
 [connection signal="pressed" from="Play" to="." method="_on_PlayAgain_pressed"]
+[connection signal="pressed" from="Shop" to="." method="_on_Shop_pressed"]

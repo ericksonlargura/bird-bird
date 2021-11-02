@@ -5,6 +5,8 @@ onready var _hudPoint = get_node("/root/Score")
 onready var _player = get_node("/root/InitializePlayer")
 onready var _save = get_node("/root/SaveGame")
 
+signal shopMenu
+
 func _ready():
 	_hudPoint.points = 0
 	_hudPoint.deleteNumber()
@@ -47,3 +49,8 @@ func resetGame():
 
 func _on_PlayAgain_pressed():
 	self.resetGame()
+
+
+func _on_Shop_pressed():
+	emit_signal("shopMenu")
+	pass # Replace with function body.
