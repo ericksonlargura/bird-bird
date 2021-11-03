@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/levels/Level1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/menus/Start.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Main.gd" type="Script" id=3]
 [ext_resource path="res://src/models/Score.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/menus/Hud.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node2D"]
 pause_mode = 2
 script = ExtResource( 3 )
+
+[node name="Hud" parent="." instance=ExtResource( 5 )]
 
 [node name="StartMenu" parent="." instance=ExtResource( 2 )]
 

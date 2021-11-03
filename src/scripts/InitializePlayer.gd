@@ -18,7 +18,7 @@ func resetPlayer():
 
 # Inserindo pinto via instance
 func insertPlayer():
-	if(instances.size() <= 0):
+	if instances.size() <= 0:
 		var instancePlayer = _player.instance()
 		instancePlayer.position = Vector2(142, 334)
 		add_child(instancePlayer)

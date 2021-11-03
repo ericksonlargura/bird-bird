@@ -13,9 +13,11 @@ var rng = RandomNumberGenerator.new()
 
 var sprite = preload('res://src/models/Pipes.tscn')
 var point = preload('res://src/models/ScorePoint.tscn')
+var coinModel = preload('res://src/models/Coin.tscn')
 
 var pipes = []
 var seconds_passed = 0
+var should_create_coin = false
 
 func _ready():
 	pass
@@ -25,6 +27,12 @@ func _process(delta):
 	
 	if seconds_passed >= PIPE_AFTER_SECONDS:
 		seconds_passed = 0
+
+		# Chance de gerar moeda
+		rng.randomize()
+		var random = rng.randf_range(0, 10)
+		if random <= 2:
+			should_create_coin = true
 
 		rng.randomize()
 
@@ -40,13 +48,21 @@ func _process(delta):
 		top_pipe.rotation = PI
 		add_child(top_pipe)
 
-		var coin = point.instance()
-		coin.position = Vector2(VECTOR_X, y - (PIPE_HEIGHT / 2.0) - (space / 2.0))
-		add_child(coin)
+		var collision = point.instance()
+		collision.position = Vector2(VECTOR_X, y - (PIPE_HEIGHT / 2.0) - (space / 2.0))
+		add_child(collision)
+
+		var coin
+		if should_create_coin:
+			should_create_coin = false
+			coin = coinModel.instance()
+			coin.position = Vector2(VECTOR_X, y - (PIPE_HEIGHT / 2.0) - (space / 2.0))
+			add_child(coin)
 
 		pipes.append({
 			top = top_pipe,
 			bottom = bottom_pipe,
+			collision = collision,
 			coin = coin
 		})
 
@@ -55,13 +71,19 @@ func _process(delta):
 		if self.pipes[i].top.position.x < -80:
 			self.pipes[i].top.queue_free()
 			self.pipes[i].bottom.queue_free()
-			self.pipes[i].coin.queue_free()
+			self.pipes[i].collision.queue_free()
+
+			if self.pipes[i].coin:
+				self.pipes[i].coin.queue_free()
 			should_remove.append(i)
 		else:
 			var velocity = Vector2(delta * SPEED, 0)
 			self.pipes[i].top.position -= velocity
 			self.pipes[i].bottom.position -= velocity
-			self.pipes[i].coin.position -= velocity
+			self.pipes[i].collision.position -= velocity
+
+			if self.pipes[i].coin:
+				self.pipes[i].coin.position -= velocity
 
 	for i in should_remove:
 		self.pipes.remove(i)
@@ -72,7 +94,10 @@ func deleteAllPipes():
 	for i in range(pipes.size()):
 		self.pipes[i].top.queue_free()
 		self.pipes[i].bottom.queue_free()
-		self.pipes[i].coin.queue_free()
+		self.pipes[i].collision.queue_free()
+
+		if self.pipes[i].coin:
+			self.pipes[i].coin.queue_free()
 		should_remove.append(i)
 
 	self.pipes = []
