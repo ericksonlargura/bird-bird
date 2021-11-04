@@ -19,20 +19,25 @@ func _ready():
 
 func _process(_delta):
 	if(_game.running):
-		$TextureStart.visible = false
-		$GameOverUI.visible = false
-		$Play.visible = false
+		self.hideStart()
 		get_tree().paused = false
 	elif(_game.die):
-		$GameOverUI.visible = true
-		
-		$Play.visible = true
-		$Shop.visible = true
+		self.showStart()
 		#animateButton($Shop, 1.2)
 		get_tree().paused = true
-	
+
 	$Cursor.position = get_global_mouse_position() - Vector2(-12, -10)
 
+func hideStart():
+	$TextureStart.visible = false
+	$GameOverUI.visible = false
+	$Play.visible = false
+	$Shop.visible = false
+
+func showStart():
+	$GameOverUI.visible = true
+	$Play.visible = true
+	$Shop.visible = true
 
 func resetGame():
 	get_tree().paused = false
@@ -43,7 +48,11 @@ func resetGame():
 	self._ready()
 	get_tree().paused = true
 	_save.load_game()
-	pass
 
 func _on_PlayAgain_pressed():
 	self.resetGame()
+
+func _on_Shop_pressed():
+	self.hideStart()
+	var node = get_node("../Shop")
+	node.visible = true
